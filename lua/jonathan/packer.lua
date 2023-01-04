@@ -68,6 +68,10 @@ require('packer').startup(function(use)
   -- Pin buffers
   use 'theprimeagen/harpoon'
 
+  -- Surround
+  use 'tpope/vim-surround'
+  use 'matt-a-bennett/vim-surround-funk'
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
