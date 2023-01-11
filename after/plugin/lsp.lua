@@ -108,15 +108,20 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
 -- Turn on lsp status information
 require('fidget').setup()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local cmpcontext = require 'cmp.config.context'
 
 cmp.setup {
+  enabled = function()
+    -- Disable completion in comments
+    return cmpcontext.in_treesitter_capture("comment") or
+      cmpcontext.in_syntax_group("comment")
+  end,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -154,4 +159,16 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- null-ls
+local null_ls = require('null-ls')
+null_ls.setup({
+  sources = {
+    -- python
+    null_ls.builtins.formatting.black.with({
+      extra_args = { "--line-length=80" }
+    }),
+    null_ls.builtins.formatting.isort,
+  }
+})
 

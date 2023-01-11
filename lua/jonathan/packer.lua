@@ -39,6 +39,11 @@ require('packer').startup(function(use)
     end,
   }
 
+  -- formatter/linter
+  use { "jose-elias-alvarez/null-ls.nvim",
+      requires = { "nvim-lua/plenary.nvim" }
+  }
+
   use { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
@@ -71,6 +76,11 @@ require('packer').startup(function(use)
   -- Surround
   use 'tpope/vim-surround'
   use 'matt-a-bennett/vim-surround-funk'
+
+  -- Debuggers
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use 'mfussenegger/nvim-dap-python'
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
