@@ -24,12 +24,15 @@ vim.keymap.set('n', '<leader>dU', dapui.toggle, { desc = "[D]AP: Toggle [U]I" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
+  require 'gitsigns'.detach()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
   dapui.close()
+  require 'gitsigns'.attach()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
+  require 'gitsigns'.attach()
 end
 
 -- Language specific keymaps

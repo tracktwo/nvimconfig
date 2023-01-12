@@ -116,11 +116,12 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 local cmpcontext = require 'cmp.config.context'
 
+
 cmp.setup {
   enabled = function()
     -- Disable completion in comments
-    return cmpcontext.in_treesitter_capture("comment") or
-      cmpcontext.in_syntax_group("comment")
+    return not (cmpcontext.in_treesitter_capture("comment")  or
+       cmpcontext.in_syntax_group("comment"))
   end,
   snippet = {
     expand = function(args)
