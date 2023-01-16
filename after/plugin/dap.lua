@@ -18,21 +18,19 @@ vim.keymap.set('n', '<F5>', dap.continue, { desc = "[D]AP: [G]o" })
 vim.keymap.set('n', '<F17>', dap.terminate, { desc = "[D]AP: Close" })
 
 vim.keymap.set('n', '<leader>dU', dapui.toggle, { desc = "[D]AP: Toggle [U]I" })
+vim.keymap.set('n', '<leader>dc', dap.focus_frame, { desc = "[D]AP: Fo[c]us Frame" })
 
 
 -- UI Config
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-  require 'gitsigns'.detach()
+  dapui.open({})
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-  require 'gitsigns'.attach()
+  dapui.close({})
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-  require 'gitsigns'.attach()
+  dapui.close({})
 end
 
 -- Language specific keymaps

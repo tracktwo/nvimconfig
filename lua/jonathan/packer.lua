@@ -52,7 +52,6 @@ require('packer').startup(function(use)
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
-  use 'lewis6991/gitsigns.nvim'
 
  -- use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'cocopon/iceberg.vim'
@@ -81,6 +80,8 @@ require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use 'mfussenegger/nvim-dap-python'
+
+  use { 'glts/vim-radical', requires = { "glts/vim-magnum" } }
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
