@@ -4,6 +4,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Add an indicator to column 80
 vim.opt.colorcolumn = "80"
