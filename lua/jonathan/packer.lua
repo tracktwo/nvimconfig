@@ -53,8 +53,10 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
 
- -- use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'navarasu/onedark.nvim'
   use 'cocopon/iceberg.vim'
+  use 'w0ng/vim-hybrid'
+
   use 'ryanoasis/vim-devicons'
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
