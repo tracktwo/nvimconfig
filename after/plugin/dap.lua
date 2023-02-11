@@ -6,6 +6,14 @@ vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''
 
 dapui.setup()
 
+dap.configurations.rust = {
+  {
+    type = 'rust',
+    request = 'attach',
+    name = 'Attach To Process'
+  }
+}
+
 vim.keymap.set('n', '<F9>', dap.toggle_breakpoint, { desc = "DAP: Toggle [B]reakpoint" })
 vim.keymap.set('n', '<F11>', dap.step_into, { desc = "[D]AP: Step [I]nto" })
 vim.keymap.set('n', '<F10>', dap.step_over, { desc = "[D]AP: Step [O]ver" })
