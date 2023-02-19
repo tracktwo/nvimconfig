@@ -74,7 +74,7 @@ local servers = {
   --     }
   --   }
   -- },
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
@@ -187,5 +187,6 @@ rt.setup({
       -- Code action groups
       vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
+    procMacro = { enable = true },
   },
 })

@@ -1,26 +1,31 @@
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
+ require('telescope').setup {
   defaults = {
-    pathdisplay = "truncate"
+    pathdisplay = "truncate",
+    mappings = {
+      i = {
+        ['<C-j>'] = require('telescope.actions').move_selection_next,
+        ['<C-k>'] = require('telescope.actions').move_selection_previous,
+      },
+    },
   },
   pickers = {
     buffers = {
       mappings = {
-         n = {
+        n = {
           ['<M-d>'] = require('telescope.actions').delete_buffer
-         },
-         i = {
-          ['<M-d>'] = require('telescope.actions').delete_buffer
-         },
+        },
+        i = {
+          ['<M-d>'] = require('telescope.actions').delete_buffer,
+        },
       },
     }
   },
   extensions = {
     file_browser = {
       theme = "ivy",
-      hihack_netrw = true,
+      hijack_netrw = true,
       display_stat = false,
       path = "%:p:h",
       mappings = {
@@ -33,7 +38,7 @@ require('telescope').setup {
       }
     }
   }
-}
+ }
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -60,4 +65,4 @@ vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, { desc 
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>st', require('telescope.builtin').tagstack, { desc = '[S]earch [T]agstack' })
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
-
+vim.keymap.set('n', '<leader>sr', require('telescope.builtin').registers, { desc = '[S]earch [R]egisters' })
