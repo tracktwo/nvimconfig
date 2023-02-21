@@ -27,6 +27,7 @@ vim.keymap.set('n', '<F17>', dap.terminate, { desc = "[D]AP: Close" })
 
 vim.keymap.set('n', '<leader>dU', dapui.toggle, { desc = "[D]AP: Toggle [U]I" })
 vim.keymap.set('n', '<leader>dc', dap.focus_frame, { desc = "[D]AP: Fo[c]us Frame" })
+vim.keymap.set('n', '<C-k>', dapui.eval, { desc = "DAP: Hover eval" })
 
 
 -- UI Config
@@ -49,3 +50,9 @@ dap_python.setup()
 dap_python.test_runner = 'pytest'
 vim.keymap.set('n', '<leader>tm', dap_python.test_method, { desc = "DAP: [T]est [M]ethod" })
 vim.keymap.set('n', '<leader>tc', dap_python.test_class, { desc = "DAP: [T]est [C]lass" })
+
+
+-- Create a command `:DapReset` to reset the layout
+  vim.api.nvim_create_user_command('DapReset', function(_)
+    dapui.open({reset=true})
+  end, { desc = 'Reset the DAP layout' })
