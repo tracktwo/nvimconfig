@@ -76,8 +76,8 @@ require('packer').startup(function(use)
   use 'theprimeagen/harpoon'
 
   -- Surround
-  use 'tpope/vim-surround'
-  use 'matt-a-bennett/vim-surround-funk'
+  use 'kylechui/nvim-surround'
+  -- use 'matt-a-bennett/vim-surround-funk'
 
   -- Debuggers
   use 'mfussenegger/nvim-dap'
