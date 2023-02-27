@@ -24,6 +24,9 @@ local on_attach = function(_, bufnr)
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap('<leader>df', function()
+    require('telescope.builtin').lsp_document_symbols({ symbols = "function" })
+  end, '[D]ocument [F]unctions')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
@@ -179,6 +182,21 @@ null_ls.setup({
 -- rust-tools
 local rt = require('rust-tools')
 
+local rust_adapter = function()
+  if jit.os == 'Windows' then
+    local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
+    local codelldb_path = extension_path .. 'adapter/codelldb.exe'
+    local liblldb_path = extension_path .. 'lldb/bin/liblldb.dll'
+    return require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+  else
+    return {
+      type = "executable",
+      command = "lldb-vscode",
+      name = "rt_lldb"
+    }
+  end
+end
+
 rt.setup({
   server = {
     on_attach = function(client, bufnr)
@@ -189,4 +207,7 @@ rt.setup({
     end,
     procMacro = { enable = true },
   },
+  dap = {
+    adapter = rust_adapter()
+  }
 })
