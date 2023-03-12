@@ -231,7 +231,12 @@ rt.setup({
       -- Code action groups
       vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
-    procMacro = { enable = true },
+    settings = {
+      ["rust-analyzer"] = {
+        procMacro = { enable = true },
+        check = { command = "clippy" },
+      }
+    }
   },
   dap = {
     adapter = rust_adapter()
