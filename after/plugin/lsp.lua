@@ -118,8 +118,33 @@ require('fidget').setup()
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 local cmpcontext = require 'cmp.config.context'
+local lstypes = require 'luasnip.util.types'
+local snippet_hl = {
+  passive = {
+     virt_text = {{"S", "IncSearch"}},
+  },
+  -- active = {
+  --   virt_text = {{"active", "DiffText"}}
+  -- },
+  -- snippet_passive = {
+  --   virt_text = {{"snippet", "DiffText"}}
+  -- }
+}
+-- luasnip setup.
+luasnip.config.set_config({
+  -- Entering insert mode will leave the current snippet if the cursor
+  -- is outside its region. Prevents 'tab' from jumping to a previously
+  -- incomplete snippet in another area.
+  region_check_events = 'InsertEnter',
+  -- Leaving insert mode will check if the snippet was deleted and remove
+  -- it from history.
+  delete_check_events = 'InsertLeave',
 
-
+  ext_opts = {
+    [lstypes.insertNode] = snippet_hl,
+    [lstypes.choiceNode] = snippet_hl,
+  }
+})
 cmp.setup {
   enabled = function()
     -- Disable completion in comments
@@ -134,6 +159,7 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-c>'] = cmp.close,
     ['<C-y>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
