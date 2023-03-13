@@ -2,7 +2,7 @@
 -- See `:help telescope` and `:help telescope.setup()`
  require('telescope').setup {
   defaults = {
-    pathdisplay = "truncate",
+    path_display = { "truncate" },
     mappings = {
       i = {
         ['<C-j>'] = require('telescope.actions').move_selection_next,
@@ -20,6 +20,9 @@
           ['<M-d>'] = require('telescope.actions').delete_buffer,
         },
       },
+    },
+    lsp_references = {
+      show_line = false,
     }
   },
   extensions = {
