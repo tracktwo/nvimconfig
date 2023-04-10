@@ -56,6 +56,8 @@ require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   use 'cocopon/iceberg.vim'
   use 'w0ng/vim-hybrid'
+  use "rebelot/kanagawa.nvim"
+  use 'folke/tokyonight.nvim'
 
   use 'ryanoasis/vim-devicons'
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline

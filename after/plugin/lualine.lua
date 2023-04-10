@@ -2,7 +2,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'onedark',
+    theme = 'nightfly',
     component_separators = '',
     section_separators = '',
   },
