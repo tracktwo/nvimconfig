@@ -30,7 +30,7 @@ vim.keymap.set('n', '<S-F5>', dap.terminate, { desc = "[D]AP: Close" })
 
 vim.keymap.set('n', '<leader>dU', dapui.toggle, { desc = "[D]AP: Toggle [U]I" })
 vim.keymap.set('n', '<leader>dc', dap.focus_frame, { desc = "[D]AP: Fo[c]us Frame" })
-vim.keymap.set('n', '<C-k>', dapui.eval, { desc = "DAP: Hover eval" })
+-- vim.keymap.set('n', '<C-k>', dapui.eval, { desc = "DAP: Hover eval" })
 
 
 -- UI Config
