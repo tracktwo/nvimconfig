@@ -9,4 +9,5 @@ return {
     },
     { "rebelot/kanagawa.nvim"  },
     { "nvim-telescope/telescope-fzf-native.nvim" },
+    { "numToStr/Comment.nvim", opts = {} },
 }
