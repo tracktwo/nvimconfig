@@ -25,45 +25,6 @@ return {
             { '<C-j>', function() require('telescope.actions').move_selection_next() end },
             { '<C-k>', function() require('telescope.actions').move_selection_previous() end },
         },
-        opts = {
-            defaults = {
-                path_display = { "truncate" },
-                file_ignore_patterns = {
-                    ".git/"
-                },
-            },
-            pickers = {
-                buffers = {
-                    mappings = {
-                        n = {
-                            ['<M-d>'] = function() require('telescope.actions').delete_buffer() end,
-                        },
-                        i = {
-                            ['<M-d>'] = function() require('telescope.actions').delete_buffer() end,
-                        }
-                    }
-                },
-                lsp_references = {
-                    show_line = false
-                }
-            },
-            extensions = {
-                file_browser = {
-                    theme = "ivy",
-                    hijack_netrw = true,
-                    display_stat = false,
-                    path = "%:p:h",
-                    mappings = {
-                        ["i"] = {
-                            ['<C-a>'] = function() require(telescope).extensions.file_browser.actions.create() end,
-                        },
-                        ["n"] = {
-                             ['<C-a>'] = function() require(telescope).extensions.file_browser.actions.create() end,
-                         }
-                     }
-                 }
-             }
-        },
         config = function()
             require('telescope').setup({
                 defaults = {
