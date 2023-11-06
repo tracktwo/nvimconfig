@@ -16,6 +16,8 @@ return {
                 lsp_zero.default_keymaps({buffer=bufnr})
             end)
 
+            vim.g.rustfmt_autosave = 1
+
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {},

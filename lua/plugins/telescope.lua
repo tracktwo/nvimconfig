@@ -22,8 +22,8 @@ return {
                     winblend = 10,
                     previewer = false
                 }) end, desc = "[/] Fuzzy search in current buffer" },
-            { '<C-j>', function() require('telescope.actions').move_selection_next() end },
-            { '<C-k>', function() require('telescope.actions').move_selection_previous() end },
+             --            { '<C-j>', function() require('telescope.actions').move_selection_next() end },
+            --{ '<C-k>', function() require('telescope.actions').move_selection_previous() end },
         },
         config = function()
             require('telescope').setup({
