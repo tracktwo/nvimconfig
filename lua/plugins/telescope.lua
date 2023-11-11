@@ -17,11 +17,15 @@ return {
             { '<leader>sk', function() require ('telescope.builtin').keymaps() end, desc = "[S]earch [K]eymaps" },
             { '<leader>sr', function() require ('telescope.builtin').registers() end, desc = "[S]earch [R]egisters" },
             { '<leader>b', ":Telescope file_browser<CR>", desc = "[S]earch File [B]rowser" },
+            { '<leader>ss', function() require ('telescope.builtin').treesitter() end, desc = '[S]earch [S]ymbols' },
             { '<leader>/', function()
                 require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
                     winblend = 10,
                     previewer = false
                 }) end, desc = "[/] Fuzzy search in current buffer" },
+            { '<leader>;', function()
+                require ('telescope.builtin').resume()
+                end, desc = "[;] Resume previous search" },
              --            { '<C-j>', function() require('telescope.actions').move_selection_next() end },
             --{ '<C-k>', function() require('telescope.actions').move_selection_previous() end },
         },
