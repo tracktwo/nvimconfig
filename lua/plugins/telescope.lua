@@ -11,6 +11,7 @@ return {
             { '<leader>f', function() require ('telescope.builtin').find_files() end, desc = "Search [F]iles" },
             { '<leader>sh', function() require ('telescope.builtin').help_tags() end, desc = "[S]earch [H]elp" },
             { '<leader>sw', function() require ('telescope.builtin').grep_strings() end, desc = "[S]earch current [W]ord" },
+            { '<leader>sp', function() require ('telescope.builtin').lsp_workspace_symbols() end, desc = "[S]earch [P]roject" },
             { '<leader>g', function() require ('telescope.builtin').live_grep() end, desc = "Search by [G]rep" },
             { '<leader>sd', function() require ('telescope.builtin').diagnostics() end, desc = "[S]earch [D]iagnostics" },
             { '<leader>st', function() require ('telescope.builtin').tagstack() end, desc = "[S]earch [T]agstack" },
